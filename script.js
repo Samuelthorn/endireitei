@@ -1,4 +1,4 @@
-const HF_TOKEN = "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"; // seu token do Hugging Face
+const HF_TOKEN = "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"; // seu token do Hugging Face
 const MODEL = "tiiuae/falcon-7b-instruct";
 
 const gerarBtn = document.getElementById('gerar');
