@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Indiretas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🔥 Gerador de Indiretas</h1>
+    <p>Escolha a vibe, descreva a situação e receba uma indireta em formato de story!</p>
+
+    <div class="form">
+      <label for="categoria">Categoria:</label>
+      <select id="categoria">
+        <option value="amor">Amor</option>
+        <option value="amizade">Amizade</option>
+        <option value="família">Família</option>
+        <option value="trabalho">Trabalho</option>
+        <option value="humor">Humor</option>
+      </select>
+
+      <label for="descricao">Descreva a situação:</label>
+      <textarea id="descricao" placeholder="Ex: Ele nunca responde minhas mensagens..."></textarea>
+
+      <button id="gerar">Gerar Indireta</button>
+    </div>
+
+    <div class="resultado" id="resultado">
+      <canvas id="storyCanvas" width="1080" height="1920"></canvas>
+      <a id="downloadBtn" download="indireta.png">Baixar Story</a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
