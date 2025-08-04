@@ -1,4 +1,4 @@
-const API_KEY = "SUA_CHAVE_API_AQUI"; // coloque sua chave aqui
+const API_KEY = "AIzaSyAVD8iJQT2x4jyu1594thttZ6gqFZUrLwY"; // coloque sua chave aqui
 const gerarBtn = document.getElementById('gerar');
 const resultadoDiv = document.getElementById('resultado');
 const canvas = document.getElementById('storyCanvas');
