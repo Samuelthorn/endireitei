@@ -19,7 +19,7 @@ gerarBtn.addEventListener('click', async () => {
 
   try {
     // 1. Gerar texto usando Gemini
-    const prompt = `Crie uma indireta criativa e curta para story do Instagram, tom ${categoria}, sobre: "${descricao}".`;
+    const prompt = `GERE UMA FRSSE INDIRETA PARA story do Instagram, tom ${categoria}, sobre: "${descricao}".`;
 
     const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`, {
       method: "POST",
