@@ -1,4 +1,6 @@
-const API_KEY = "AIzaSyAVD8iJQT2x4jyu1594thttZ6gqFZUrLwY"; // coloque sua chave aqui
+const HF_TOKEN = "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"; // seu token do Hugging Face
+const MODEL = "tiiuae/falcon-7b-instruct";
+
 const gerarBtn = document.getElementById('gerar');
 const resultadoDiv = document.getElementById('resultado');
 const canvas = document.getElementById('storyCanvas');
@@ -18,23 +20,21 @@ gerarBtn.addEventListener('click', async () => {
   gerarBtn.textContent = "Gerando...";
 
   try {
-    // 1. Gerar texto usando Gemini
-    const prompt = `GERE UMA FRSSE INDIRETA PARA story do Instagram, tom ${categoria}, sobre: "${descricao}".`;
+    // 1. Gerar texto usando Hugging Face Falcon
+    const prompt = `Crie uma indireta curta e provocativa para Instagram Stories, tom ${categoria}, sobre: "${descricao}". Não cite nomes, mas deixe a pessoa curiosa.`;
 
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`, {
+    const response = await fetch(`https://api-inference.huggingface.co/models/${MODEL}`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [
-          {
-            parts: [{ text: prompt }]
-          }
-        ]
-      })
+      headers: {
+        "Authorization": `Bearer ${HF_TOKEN}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ inputs: prompt })
     });
 
     const data = await response.json();
-    const indireta = data.candidates?.[0]?.content?.parts?.[0]?.text || "Não consegui gerar, tente de novo.";
+    console.log(data); // debug
+    const indireta = data[0]?.generated_text || "Não consegui gerar, tente de novo.";
 
     // 2. Desenhar imagem estilo story
     desenharStory(indireta);
